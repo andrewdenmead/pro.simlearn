@@ -308,7 +308,7 @@ function lineChart(pts,label,ylo,yhi,marks){
   return s+"</svg>";
 }
 const PRO_COVER="";   // the cover picture (build.py fills this in)
-const PRO_AUDIO=[];   // the recordings published next to the page (build.py fills this in)
+const PRO_AUDIO=["hollowoakpro_voicemail", "hollowoakpro_oliver", "hollowoakpro_sam", "hollowoakpro_oliver_1", "hollowoakpro_oliver_2", "hollowoakpro_oliver_3", "hollowoakpro_sam_1", "hollowoakpro_sam_2", "hollowoakpro_sam_3"];   // the recordings published next to the page (build.py fills this in)
 function audio(t,voice,script,file){if(file&&PRO_AUDIO.includes(file))return `<div class="audio rec"><div style="flex:1;min-width:0"><div class="t">${t}</div><audio controls preload="none" data-f="${file}" src="audio/${file}.mp3" style="width:100%;margin-top:6px"></audio></div><details data-tf="${file}" ${(S.heard||{})[file]?"":"hidden"} ${(S.tOpen||{})[file]?"open":""}><summary>Show the text</summary><div class="script" data-src="${esc(t)}" data-q="medium">${script}</div></details></div>`;
  return `<div class="audio"><button class="play" disabled aria-label="Play (recording to come)">▶</button><div><div class="t">${t}</div><div class="s">Recording to come: read the text</div></div><details open><summary>The text</summary><div class="script" data-src="${esc(t)}" data-q="medium">${script}</div></details></div>`;}
 function mail(m){const k=m.from+"|"+m.subj, o=!!S.mailOpen[k], r=!!S.mailRead[k];
